@@ -11,7 +11,7 @@ Arduino library for decoding ECUMaster EMU Serial Logger stream (EDL-1 mode).
 - tested with EMU Classic FW version 1.226
 - tested with ESP32
 - not all channels are tested, please contact me if you notice something strange
-- CAN Channels for EGT and Wheelspeed not implemented
+- CAN channels for EGT and wheelspeed not implemented
 
 ## Usage
 Default all available data streamed by the EMU is captured and parsed. For performance and memory optimisation it's strongly advised to comment or delete unused channels. Therefore you have to modify the library on your own. If you do so make shure to modify both files below the same way!
