@@ -2,6 +2,11 @@
 
 Arduino library for decoding ECUMaster EMU Serial Logger stream (EDL-1 mode).
 
+## Benefit over traditional serial protocol
+- more channels available
+- faster due to higher baud rate
+- let you use EDL-1 and custom dash/gauges in parallel
+
 ## Features
 - Parses 260-byte EDL frames
 - Exposes engine data like RPM, Lambda, IAT, EGT, etc.
@@ -13,6 +18,9 @@ Arduino library for decoding ECUMaster EMU Serial Logger stream (EDL-1 mode).
 - not all channels are tested, please contact me if you notice something strange
 - CAN channels for EGT and wheelspeed not implemented
 
+## Hardware
+- ECU Master ECUs (both Classic and Black) use RS232 (15V), so for an Arduino or ESP32 you will need an converter board to TTL (5V/3.3V)! MAX3232CPE works just fine.
+ 
 ## Usage
 Default all available data streamed by the EMU is captured and parsed. For performance and memory optimisation it's strongly advised to comment or delete unused channels. Therefore you have to modify the library on your own. If you do so make shure to modify both files below the same way!
 
