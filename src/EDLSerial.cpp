@@ -8,16 +8,25 @@ void EDLSerial::begin(Stream &stream) {
 bool EDLSerial::update() {
   while (_stream->available()) {
     uint8_t byte = _stream->read();
-    if (_index < 260) {
-      _buffer[_index++] = byte;
+    if (_index < 4) {
+      static const uint8_t header[4] = {0x32, 0x40, 0x50, 0x60};
+      if (byte == header[_index]) {
+        _buffer[_index++] = byte;
+      } else {
+        _index = 0;
+        if (byte == header[0]) {
+          _buffer[_index++] = byte;
+        }
+      }
+      continue;
     }
-
+    _buffer[_index++] = byte;
     if (_index >= 260) {
       if (parseFrame(_buffer, _frame)) {
         _index = 0;
         return true;
       }
-      _index = 0; // reset on invalid frame
+      _index = 0;
     }
   }
   return false;
