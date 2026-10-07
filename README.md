@@ -43,10 +43,11 @@ void setup() {
 
 void loop() {
   if (edl.update()) {                   //updates the frame, returns true if frame is valid
-    Serial.println(edl.getFrame().RPM); //returns value from last captured frame
-	Serial.println(edl.getFrame().MAP);
-	Serial.println(edl.getFrame().TPS);
-	Serial.println(edl.getFrame().wboLambda);
+    const auto &frame = edl.getFrame();
+	Serial.println(frame.rpm);
+	Serial.println(frame.map);
+	Serial.println(frame.tps);
+	Serial.println(frame.wboLambda);
   }
 }
 ```
