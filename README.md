@@ -28,7 +28,7 @@ EDLTypes.h
  -> from line 7 to 201 all available channels are definded
 
 EDLSerial.cpp
- -> from line 29 to 223 channels are parsed
+ -> from line 38 to 232 channels are parsed
 
 ```cpp
 #include <EDLSerial.h>
